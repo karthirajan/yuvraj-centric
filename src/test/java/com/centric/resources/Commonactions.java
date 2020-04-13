@@ -38,6 +38,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.centric.objectrepository.MaterialSpecificationPage;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -90,6 +93,19 @@ public class Commonactions{
 			Thread.sleep(2000);
 		
 		
+
+	}
+	
+	
+	public void save() throws Throwable {
+		try{
+			click(driver.findElement(By.xpath("(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Save'])[1]")));
+			
+		}catch(Exception e){
+			eleToBeClickable();
+			click(driver.findElement(By.xpath("(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Save'])[2]")));
+			eleToBeClickable();
+		}
 
 	}
 	
@@ -358,6 +374,7 @@ public class Commonactions{
 		try {
 
 			Select obj_select = new Select(element);
+			
 			List<WebElement> optionElements = obj_select.getOptions();
 			for (int i = 0; i < optionElements.size(); i++) {
 				AvailableOptions.add(optionElements.get(i).getText());

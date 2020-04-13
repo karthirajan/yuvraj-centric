@@ -71,8 +71,9 @@ public class HomePageSteps extends Commonactions {
 	@Then("Go to homepage")
 	public void go_to_homepage() throws Throwable {
 		Commonactions.jsWaitForPageLoad();
+		ca.eleToBeClickable();
 	     ca.click(hp.getUser_homeBtn()); 
-	     
+	     ca.eleToBeClickable();
 	     System.out.println("home tab clicked successfully");
 	      
 	}

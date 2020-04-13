@@ -11,12 +11,10 @@ import cucumber.api.junit.Cucumber;
                  glue = "com.centric.stepdefinition",
                  plugin = {"html:target","json:target/reports.json"},
                  dryRun = false,
-                 tags = {"~@Jenkins"})
+                 tags = {"@Selenium1"})
 
 public class TestRunner {
 
-	
-          
 	
 	
 }

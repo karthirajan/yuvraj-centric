@@ -190,7 +190,7 @@ public class StylePageSteps extends Commonactions {
 	public void user_performing_edit_action_on_season() throws Throwable {
 	    
 		ca.eleToBeClickable();
-		ca.click(sp.getEdit_Btn());
+		ca.clickjs(sp.getEdit_Btn());
 		ca.eleToBeClickable();
 		ca.insertText(pup.getSeason_Value(), A1);
 		ca.eleToBeClickable();

@@ -1,5 +1,7 @@
 package com.centric.stepdefinition;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -7,6 +9,7 @@ import com.centric.objectrepository.HomePage;
 import com.centric.objectrepository.MaterialSpecificationPage;
 import com.centric.objectrepository.PopupPage;
 import com.centric.objectrepository.StylePage;
+import com.centric.objectrepository.UserManagementPage;
 import com.centric.resources.Commonactions;
 
 import cucumber.api.java.en.Then;
@@ -66,7 +69,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getMaterial_code(), string3);
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("standalone material created successfully");
@@ -96,7 +99,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getMaterial_code(), string3);
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("structure component material created successfully");
@@ -112,7 +115,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getMaterial_code(), string6);
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("Tool material created successfully");
@@ -128,14 +131,14 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getMaterial(), "copy-cotton");
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("standalone material copy created successfully");
 		
 		ca.click(driver.findElement(By.xpath("(//span[@data-csi-context-parent='centric://APPAREL/Views' and @data-csi-act='Copy'])[1]")));
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("Tool material copy created successfully");
@@ -174,7 +177,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getColored_material_value(), "Yellow");
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("Colors created successfully");
@@ -202,7 +205,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		ca.insertText(mp.getSortOrder(), "2");
 		ca.eleToBeClickable();
-		ca.clickjs(mp.getSave_btn());
+		ca.clickjs(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		System.out.println("Size created successfully");
@@ -212,5 +215,323 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 	    
 	    
 	}
+	
+	@Then("User creating suppliers,samples and sku and validates {string},{string},{string}")
+	public void user_creating_suppliers_samples_and_sku_and_validates(String string, String string2, String string3) throws Throwable {
+	    
+		
+		ca.eleToBeClickable();
+		ca.click(hp.getSourcingBtn());
+		ca.eleToBeClickable();
+		ca.click(mp.getSupplier());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_suppliier_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getSupplierValue(), "Supplier - Is Supplier");
+		ca.eleToBeClickable();
+		ca.click(mp.getIsSupplier_ChkBox());
+		ca.eleToBeClickable();
+		ca.save();
+		ca.eleToBeClickable();
+		
+		System.out.println("Supplier created successfully");
+		
+		ca.eleToBeClickable();
+        ca.click(hp.getUser_homeBtn()); 
+	     
+	     System.out.println("home tab clicked successfully");
+	     
+	    ca.eleToBeClickable(); 
+	    try{
+	    	ca.click(hp.getMaterialBtn());
+			ca.eleToBeClickable();
+	    }catch (Exception e) {
+			
+		}
+	    
+		ca.eleToBeClickable();
+		ca.clickjs(mp.getCopy_name());
+		ca.eleToBeClickable();
+		ca.click(mp.getSamples1());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_mat_Sample_Btn1());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getMat_SampleValue1(), string);
+		ca.eleToBeClickable();
+		String[] s = string2.split("=");
+		ca.insertText(mp.getColor_sizeValue(), s[0]);
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		ca.click(mp.getQntyMatrix());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getQntyValue(), s[1]);
+		ca.eleToBeClickable();
+		ca.click(mp.getBlue());
+		ca.eleToBeClickable();
+		ca.save();
+		ca.eleToBeClickable();
+		
+		System.out.println("Sample created successfully");
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getSKU());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_mat_sku_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getMat_sku_value(), string3);
+		ca.eleToBeClickable();
+		ca.click(mp.getUseMatrix_chkBox());
+		ca.eleToBeClickable();
+		ca.click(mp.getSelectAll());
+		ca.eleToBeClickable();
+		ca.click(mp.getSelectParticular());
+		ca.save();
+		ca.eleToBeClickable();
+	    
+		System.out.println("SKU created successfully");
+	    
+		
+	}
+	UserManagementPage up=new UserManagementPage();
+
+	@Then("User validates material gallery {string},{string}")
+	public void user_validates_material_gallery(String string, String string2) throws Throwable {
+	    //===================================temp=======================================\\
+		ca.eleToBeClickable();
+        ca.click(hp.getUser_homeBtn()); 
+	     
+	     System.out.println("home tab clicked successfully");
+	     
+	    ca.eleToBeClickable(); 
+	    try{
+	    	ca.click(hp.getMaterialBtn());
+			ca.eleToBeClickable();
+	    }catch (Exception e) {
+			
+		}
+	    //===================================================================================\\
+		ca.eleToBeClickable();
+		 try{
+		    	ca.click(hp.getMaterialBtn());
+				ca.eleToBeClickable();
+		    }catch (Exception e) {
+				
+			}
+		 ca.eleToBeClickable();
+		ca.click(mp.getMaterial_gallery());
+		ca.eleToBeClickable();
+		List<WebElement> gallery = driver.findElements(By.xpath("//div[@class='csiGalleryProperties']//a"));
+		for (WebElement webElement : gallery) {
+			System.out.println("gallery names are :"+webElement.getText());
+		}
+		ca.eleToBeClickable();
+		ca.click(mp.getMGViews());
+		ca.eleToBeClickable();
+		ca.click(mp.getMGMan_Views());
+		ca.eleToBeClickable();
+		ca.click(up.getUsrMgmt_Copy());
+		ca.eleToBeClickable();
+		ca.insertText(up.getUsrMgmt_Copy_Value(), string);
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])/option[1]")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.save();
+		ca.eleToBeClickable();
+		ca.insertText(mp.getMGFilter(), string2);
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		
+		System.out.println("Material Gallery verified successfully");
+		
+	}
+
+	@Then("User validates material security group {string},{string},{string}")
+	public void user_validates_material_security_group(String string, String string2, String string3) throws Throwable {
+	    
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getMatSecGrps());
+		ca.eleToBeClickable();
+		ca.click(mp.getMSGViews());
+		ca.eleToBeClickable();
+		ca.click(mp.getMSG_manViews());
+		ca.eleToBeClickable();
+		ca.click(up.getUsrMgmt_Copy());
+		ca.eleToBeClickable();
+		ca.insertText(up.getUsrMgmt_Copy_Value(), string);
+		ca.eleToBeClickable();
+		//ca.selectByText(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])[1]/option[text()='Material Security Group']")), "Material Security Group");
+		//ca.eleToBeClickable();
+		//ca.click(mp.getAdd());
+		//ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//select[@class='csiPreferenceSelect '])[1]/option[text()='Only For Material Types']")));
+		ca.eleToBeClickable();
+		ca.click(mp.getAdd());
+		ca.eleToBeClickable();
+		ca.save();
+		ca.eleToBeClickable();
+		
+		System.out.println("Material Security Group custom view created successfully");
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getMat_SecGrp_Btn());
+		ca.eleToBeClickable();
+		WebElement activeElement = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(activeElement, string2);
+		ca.eleToBeClickable();
+		ca.click(mp.getOnlyForMat());
+		ca.eleToBeClickable();
+		ca.click(mp.getStandalone_chkbox());
+		ca.eleToBeClickable();
+		ca.click(mp.getClickEmpty());
+		ca.eleToBeClickable();
+		
+		System.out.println("MSG_Standalone created successfully");
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getMat_SecGrp_Btn());
+		ca.eleToBeClickable();
+		WebElement activeElement1 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(activeElement1, string3);
+		ca.eleToBeClickable();
+		ca.click(mp.getOnlyForMat());
+		ca.eleToBeClickable();
+		ca.click(mp.getStandalone_chkbox());
+		ca.eleToBeClickable();
+		ca.click(mp.getStructure_Component());
+		ca.eleToBeClickable();
+		ca.click(mp.getTool());
+		ca.eleToBeClickable();
+		ca.click(mp.getClickEmpty());
+		ca.eleToBeClickable();
+		
+		System.out.println("MSG_All created successfully");
+	}
+
+	@Then("User validates colored material")
+	public void user_validates_colored_material() throws Throwable {
+	   
+		ca.eleToBeClickable();
+		ca.click(mp.getColored_mat());
+		ca.eleToBeClickable();
+		
+		System.out.println("Colored Material validated successfully");
+		
+	}
+
+	@Then("User validates and edit material samples {string}")
+	public void user_validates_and_edit_material_samples(String string) throws Throwable {
+
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getMat_samples());
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getNew_mat_sample_Btn());
+		  ca.eleToBeClickable(); 
+		ca.insertText(mp.getMat_sample_Value(), "Automation");
+		  ca.eleToBeClickable(); 
+		ca.save();
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getClick_materialSample());
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getPromote_material());
+		  ca.eleToBeClickable(); 
+		ca.insertText(mp.getMaterial(), "copy -"+string);
+		  ca.eleToBeClickable(); 
+		ca.save();
+		
+		
+		ca.eleToBeClickable();
+        ca.click(hp.getUser_homeBtn()); 
+	     
+	     System.out.println("home tab clicked successfully");
+	     
+	    ca.eleToBeClickable(); 
+	    
+		
+		ca.click(driver.findElement(By.xpath("(//span[@data-csi-act='Delete'])[1]")));
+		  ca.eleToBeClickable(); 
+		ca.click(pp.getDelete_Btn());
+		
+		System.out.println("deleted successfully");
+		
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getClick_materialSample());
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getUnLink());
+		  ca.eleToBeClickable(); 
+		ca.click(mp.getPp_unLink());
+		
+		ca.eleToBeClickable();
+        ca.click(hp.getUser_homeBtn()); 
+	     
+	     System.out.println("home tab clicked successfully");
+	     
+	    ca.eleToBeClickable(); 
+	    
+	    System.out.println("Material Sample validated successfully");
+		
+	}
+
+	@Then("User validates material SKU's")
+	public void user_validates_material_SKU_s() throws Throwable {
+	    ca.eleToBeClickable(); 
+		ca.click(mp.getMat_SKU());
+	    ca.eleToBeClickable();
+	    
+	    System.out.println("Material SKU validated successfully");
+		
+	}
+
+	@Then("User validates sourcing")
+	public void user_validates_sourcing() throws Throwable {
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getSourcing());
+		ca.eleToBeClickable();
+		ca.click(mp.getQuotes());
+		ca.eleToBeClickable();
+		ca.click(mp.getRequests());
+		ca.eleToBeClickable();
+		
+		System.out.println("Sourcing validated successfully");
+		
+	}
+
 
 }
