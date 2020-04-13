@@ -18,7 +18,7 @@ public class UserManagementPage extends Commonactions{
 	@FindBy(xpath="//span[@data-csi-tab='Site-Roles' or text()='Roles']")
 	private WebElement usrMgmt_Roles;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'centric:')]//div[@title='New Role...']//div[@class='dijitReset dijitInline dijitButtonText'])")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Roles')]//div[contains(text(),'New Role')])[1]")
 	private WebElement new_role_Btn;
 	
 	@FindBy(xpath="(//span[contains(@data-csi-automation,'actions-Site-Roles')]/span/span/span)[1]")
@@ -66,7 +66,7 @@ public class UserManagementPage extends Commonactions{
 	@FindBy(xpath="//span[@data-csi-tab='Site-AnnouncementManagement' or text()='Announcements']")
 	private WebElement usrMgmt_Ancmnts;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'centric:')]//div[@title='New Announcement...']//div[@class='dijitReset dijitInline dijitButtonText'])")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Announcement')]//div[contains(text(),'New Announcement')])[1]")
 	private WebElement new_Ancmnt_Btn;
 	
 	@FindBy(xpath="//td[contains(@class,'firstColumn') and @data-csi-heading='Message::0']")

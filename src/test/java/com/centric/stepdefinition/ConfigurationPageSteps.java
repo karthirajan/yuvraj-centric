@@ -475,7 +475,7 @@ public class ConfigurationPageSteps extends Commonactions {
 	public void user_creates_contractual_documents(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
 		
 		try{
-			ca.eleToBeClickable();
+			
 			ca.eleToBeClickable();
 			ca.clickjs(driver.findElement(By.xpath("(//span[contains(@class,'RightIcon')]/parent::div)[3]")));
 		}catch(Exception e){

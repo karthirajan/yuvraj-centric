@@ -2,8 +2,11 @@ package com.centric.stepdefinition;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.centric.objectrepository.HomePage;
 import com.centric.objectrepository.MaterialSpecificationPage;
@@ -12,8 +15,10 @@ import com.centric.objectrepository.StylePage;
 import com.centric.objectrepository.UserManagementPage;
 import com.centric.resources.Commonactions;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
 
 public class MaterialSpecificationPageSteps extends Commonactions{
 	
@@ -297,20 +302,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 
 	@Then("User validates material gallery {string},{string}")
 	public void user_validates_material_gallery(String string, String string2) throws Throwable {
-	    //===================================temp=======================================\\
-		ca.eleToBeClickable();
-        ca.click(hp.getUser_homeBtn()); 
-	     
-	     System.out.println("home tab clicked successfully");
-	     
-	    ca.eleToBeClickable(); 
-	    try{
-	    	ca.click(hp.getMaterialBtn());
-			ca.eleToBeClickable();
-	    }catch (Exception e) {
-			
-		}
-	    //===================================================================================\\
+
 		ca.eleToBeClickable();
 		 try{
 		    	ca.click(hp.getMaterialBtn());
@@ -533,5 +525,295 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		
 	}
 
+	@Given("User validates care label {string},{string},{string}")
+	public void user_validates_care_label(String string, String string2, String string3) throws Throwable {
+	    
+
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getCare_label());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_care_label_btn());
+		ca.eleToBeClickable();
+		WebElement e = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e, string);
+		//ca.eleToBeClickable();
+		//ca.click(mp.getCare_type());
+		ca.eleToBeClickable();
+		String[] s = string.split("-");
+		 for (int i = 0; i < 10; i++) {
+	           WebElement dr = mp.getCare_type();
+	           Thread.sleep(100);          
+	           dr.click();
+	                Actions a = new Actions(driver);
+	              for (int j = 0; j <= i; j++) {
+	            	  Thread.sleep(100);
+	             a.sendKeys(Keys.DOWN).build().perform();
+	            // Thread.sleep(300);
+	                         }
+
+	                a.sendKeys(Keys.TAB).build().perform();
+	               // dr.click();
+		            System.out.println(dr.getText());
+		            System.out.println("...............");
+		            System.out.println(s[0].trim());
+	             //   Thread.sleep(300);
+	            if (dr.getText().equalsIgnoreCase(s[1].trim())) {
+	                    break;
+	                      }
+	                  Thread.sleep(500);
+	                     }
+		ca.eleToBeClickable();
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_care_label_btn());
+		ca.eleToBeClickable();
+		WebElement e2 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e2, string2);
+		ca.eleToBeClickable();
+		//ca.click(mp.getCare_type());
+		//ca.eleToBeClickable();
+		String[] s1 = string2.split("-");
+		 for (int i = 0; i < 10; i++) {
+	           WebElement dr = mp.getCare_type();
+	           Thread.sleep(100);          
+	           dr.click();
+	                Actions a = new Actions(driver);
+	              for (int j = 0; j <= i; j++) {
+	            	  Thread.sleep(100);
+	             a.sendKeys(Keys.DOWN).build().perform();
+	              }
+	              a.sendKeys(Keys.TAB).build().perform();
+	              //dr.click();
+	              System.out.println(dr.getText());
+	            if (dr.getText().equalsIgnoreCase(s1[1].trim())) {
+	                    break;
+	                      }
+	                  Thread.sleep(500);
+	                     }
+		ca.eleToBeClickable();
+		
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_care_label_btn());
+		ca.eleToBeClickable();
+		WebElement e4 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e4, string3);
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//span[text()='Care Label'])[2]")));
+		ca.eleToBeClickable();
+		
+		System.out.println("care label validated successfully");
+		
+	}
+
+	@Given("User validates composition placements {string},{string}")
+	public void user_validates_composition_placements(String string, String string2) throws Throwable {
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getComp_placement());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_comp_placement_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getComp_placement_value(), string);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_saveAndnew_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getComp_placement_value(), string2);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		
+		System.out.println("composition placement validated successfully");
+	}
+
+	@Given("User validates composition material {string},{string},{string}")
+	public void user_validates_composition_material(String string, String string2, String string3) throws Throwable {
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getComp_materials());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_comp_material_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getComp_material_value(), string);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_saveAndnew_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getComp_material_value(), string2);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_saveAndnew_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getComp_material_value(), string3);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		
+		System.out.println("composition material validated successfully");
+		
+	}
+
+	@Given("User validates placement {string},{string}")
+	public void user_validates_placement(String string, String string2) throws Throwable {
+		
+	try{
+			
+			ca.eleToBeClickable();
+			ca.clickjs(driver.findElement(By.xpath("(//span[contains(@class,'RightIcon')]/parent::div)[2]")));
+		}catch(Exception e){
+		}
+	    
+	    ca.eleToBeClickable();
+		ca.click(mp.getPlacement());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_placement_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getPlacement_value(), string);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_saveAndnew_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getPlacement_value(), string2);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		
+		System.out.println("placement validated successfully");
+		
+	}
+
+	@Given("User validates product symbols {string},{string},{string}")
+	public void user_validates_product_symbols(String string, String string2, String string3) throws Throwable {
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getProduct_symbols());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_prodSymbol_Btn());
+		ca.eleToBeClickable();
+		WebElement e = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e, string);
+		ca.eleToBeClickable();
+		String[] s = string.split("-");
+		ca.eleToBeClickable();
+		ca.click(mp.getProdSymbol_type());
+		ca.eleToBeClickable();
+		WebElement e1 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e1, s[1].trim());
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		
+		ca.click(mp.getNew_prodSymbol_Btn());
+		ca.eleToBeClickable();
+		WebElement e2 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e2, string2);
+		ca.eleToBeClickable();
+		String[] s2 = string2.split("-");
+		ca.eleToBeClickable();
+		ca.click(mp.getProdSymbol_type());
+		ca.eleToBeClickable();
+		WebElement e3 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e3, s2[1].trim());
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		
+		ca.click(mp.getNew_prodSymbol_Btn());
+		ca.eleToBeClickable();
+		WebElement e4 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e4, string3);
+		ca.eleToBeClickable();
+		String[] s3 = string3.split("-");
+		ca.eleToBeClickable();
+		ca.click(mp.getProdSymbol_type());
+		ca.eleToBeClickable();
+		WebElement e5 = driver.switchTo().activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(e5, s3[1].trim());
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		
+		System.out.println("product symbols validated successfully");
+		
+		
+	}
+
+	@Given("User validates language {string},{string},{string}")
+	public void user_validates_language(String string, String string2, String string3) throws Throwable {
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getLanguage());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_language_Btn());
+		ca.eleToBeClickable();
+		ca.insertText(mp.getLang_value(), string);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getLang_value(), string2);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		
+		ca.insertText(mp.getLang_value(), string3);
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_cancel_Btn());
+		ca.eleToBeClickable();
+		
+		System.out.println("language validated successfully");
+		
+	}
+
+	@Given("User validates product structure {string}")
+	public void user_validates_product_structure(String string) throws Throwable {
+		
+
+	    
+		ca.eleToBeClickable();
+		ca.click(mp.getProduct_structure());
+		ca.eleToBeClickable();
+		ca.click(mp.getNew_prodStructure_Btn());
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_cancel_Btn());
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'ProductStructure')]//td[@data-csi-heading='Node Name::0']/a")));
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//div[text()='add' and contains(@class,'icon')])[2]")));
+		ca.eleToBeClickable();
+		ca.insertText(driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'FixedMaterial')]/div)[3]/input)[1]")), string);
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		ca.click(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		ca.click(mp.getActiveIcon());
+		
+		ca.eleToBeClickable();
+        ca.click(hp.getUser_homeBtn()); 
+	     
+	     System.out.println("home tab clicked successfully");
+	     
+	    ca.eleToBeClickable(); 
+	    
+	    
+	    String text = ca.getText(mp.getActiveText());
+		Assert.assertEquals("Active", text);
+		ca.eleToBeClickable();
+		
+		System.out.println("product structure validated successfully");
+		
+	}
+	
 
 }

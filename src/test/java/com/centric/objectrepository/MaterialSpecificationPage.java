@@ -32,10 +32,10 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//td[@data-csi-heading='Node Name::0']/a")
 	private WebElement lib_node_name;
 	
-	@FindBy(xpath="(//table[@data-csi-context-parent-attr='Elements']//div[@title='New Material...']/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'LibMaterial')]//div[contains(text(),'New Material')])[1]")
 	private WebElement material_btn;
 	
-	@FindBy(xpath="(//table[@data-csi-url='centric:']//div[@title='New Material...']/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Material')]//div[contains(text(),'New Material')])[1]")
 	private WebElement new_material_btn;
 	
 	@FindBy(xpath="//div[contains(@data-csi-automation,'field-Material')]/div[contains(@class,'Input')]/input[@role='textbox']")
@@ -56,7 +56,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//td[@data-csi-act='Node Name::0']/a[contains(text(),'copy')]")
 	private WebElement copy_name;
 	
-	@FindBy(xpath="(//table[@data-csi-url='centric:']//div[contains(@title,'Material')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Material')]//div[contains(text(),'Colored Material')])[1]")
 	private WebElement new_colored_material_btn;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'ColorMaterial')]/div)/div/input)[1]")
@@ -68,7 +68,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Save'])[2]")
 	private WebElement colorAndSize_save_btn;
 	
-	@FindBy(xpath="(//table[@data-csi-url='centric:']//div[contains(@title,'Size')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Size')]//div[contains(text(),'Size')])[1]")
 	private WebElement new_size_btn;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'ProductSize')]/div)/div/input)[1]")
@@ -80,7 +80,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Supplier' and @data-csi-tab='LibSourcing-Suppliers']")
 	private WebElement supplier;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'LibSourcing-Suppliers')]//div[contains(@title,'Supplier')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'LibSourcing-Suppliers')]//div[contains(text(),'Supplier')])[1]")
 	private WebElement new_suppliier_Btn;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'Supplier')]/div)/div/input)[1]")
@@ -92,7 +92,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab='Material-ProductSamples']")
 	private WebElement samples1;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSamples')]//div[contains(@title,'Material Sample')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSamples')]//div[contains(text(),'Material Sample')])[1]")
 	private WebElement new_mat_Sample_Btn1;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'MaterialSample')]/div)/div/input)[1]")
@@ -113,7 +113,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//span[text()='SKUs' or @data-csi-tab='Material-ProductSKU']")
 	private WebElement SKU;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSKU')]//div[contains(@title,'Material SKU')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSKU')]//div[contains(text(),'Material SKU')])[1]")
 	private WebElement new_mat_sku_Btn;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'SKUMaterial')]/div)/div/input)[1]")
@@ -155,7 +155,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="(//tr[contains(@data-csi-automation,'MaterialSecurityGroup')]//td[text()='Manage Views'])")
 	private WebElement MSG_manViews;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'MaterialSecurityGroups')]//div[contains(@title,'Material Security')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'MaterialSecurityGroups')]//div[contains(text(),'Material Security')])[1]")
 	private WebElement mat_SecGrp_Btn;
 	
 	@FindBy(xpath="//td[@data-csi-act='OnlyForMaterialTypes::0']")
@@ -179,7 +179,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Material Samples' and @data-csi-tab='ApparelViews-MaterialSamples']")
 	private WebElement mat_samples;
 	
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'MaterialSamples')]//div[contains(@title,'Material Sample')]/div)[2]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'MaterialSamples')]//div[contains(text(),'Material Sample')])[1]")
 	private WebElement new_mat_sample_Btn;
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'MaterialSample')]/div)/div/input)[1]")
@@ -208,6 +208,72 @@ public class MaterialSpecificationPage extends Commonactions{
 	
 	@FindBy(xpath="//span[text()='Supplier Requests' and @data-csi-tab='ApparelViews-MaterialSupplierRequests']")
 	private WebElement requests;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartAdmin-CareSymbols') and text()='Care Label']")
+	private WebElement care_label;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'CareSymbols')]//div[contains(text(),'Care Label')])[1]")
+	private WebElement new_care_label_btn;
+	
+	@FindBy(xpath="//td[@data-csi-act='SymbolType::0' or text()='Special Instructions']")
+	private WebElement care_type;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartAdmin-CompositionPlacements') and text()='Composition Placements']")
+	private WebElement comp_placement;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'CompositionPlacements')]//div[contains(text(),'Composition Placement')])[1]")
+	private WebElement new_comp_placement_Btn;
+	
+	@FindBy(xpath="((//div[contains(@data-csi-automation,'CompositionPlacement')]/div)/div/input)[1]")
+	private WebElement comp_placement_value;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartAdmin-CompositionMaterials') and text()='Composition Materials']")
+	private WebElement comp_materials;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'CompositionMaterials')]//div[contains(text(),'Composition Material')])[1]")
+	private WebElement new_comp_material_Btn;
+	
+	@FindBy(xpath="((//div[contains(@data-csi-automation,'Composition')]/div)/div/input)[1]")
+	private WebElement comp_material_value;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartAdmin-Placement') and text()='Placement']")
+	private WebElement placement;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Placement')]//div[contains(text(),'Placement Name')])[1]")
+	private WebElement new_placement_Btn;
+	
+	@FindBy(xpath="((//div[contains(@data-csi-automation,'Placement')]/div)/div/input)[1]")
+	private WebElement placement_value;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'ApparelViews-ProductSymbols') and text()='Product Symbols']")
+	private WebElement product_symbols;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSymbols')]//div[contains(text(),'Product Symbol')])[1]")
+	private WebElement new_prodSymbol_Btn;
+	
+	@FindBy(xpath="//td[@data-csi-heading='LocalizedName::0']//following-sibling::td[@data-csi-act='SymbolType::0']")
+	private WebElement prodSymbol_type;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartAdmin-Language') and text()='Language']")
+	private WebElement language;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'Language')]//div[contains(text(),'Language')])[1]")
+	private WebElement new_language_Btn;
+	
+	@FindBy(xpath="((//div[contains(@data-csi-automation,'Language')]/div)/div/input)[1]")
+	private WebElement lang_value;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab,'ApparelViews-ProductStructure') and text()='Product Structure']")
+	private WebElement product_structure;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductStructure')]//div[contains(text(),'Product Structure')])[1]")
+	private WebElement new_prodStructure_Btn;
+	
+	@FindBy(xpath="//span[@data-csi-act='ActivateStructure' or text()='play_arrow']")
+	private WebElement ActiveIcon;
+	
+	@FindBy(xpath="//td[@data-csi-heading='State::0' and text()='Active']")
+	private WebElement ActiveText;
 
 	public WebElement getLibraries() {
 		return libraries;
@@ -468,6 +534,95 @@ public class MaterialSpecificationPage extends Commonactions{
 	public WebElement getRequests() {
 		return requests;
 	}
+
+	public WebElement getCare_label() {
+		return care_label;
+	}
+
+	public WebElement getNew_care_label_btn() {
+		return new_care_label_btn;
+	}
+
+	public WebElement getCare_type() {
+		return care_type;
+	}
+
+	public WebElement getComp_placement() {
+		return comp_placement;
+	}
+
+	public WebElement getNew_comp_placement_Btn() {
+		return new_comp_placement_Btn;
+	}
+
+	public WebElement getComp_placement_value() {
+		return comp_placement_value;
+	}
+
+	public WebElement getComp_materials() {
+		return comp_materials;
+	}
+
+	public WebElement getNew_comp_material_Btn() {
+		return new_comp_material_Btn;
+	}
+
+	public WebElement getComp_material_value() {
+		return comp_material_value;
+	}
+
+	public WebElement getPlacement() {
+		return placement;
+	}
+
+	public WebElement getNew_placement_Btn() {
+		return new_placement_Btn;
+	}
+
+	public WebElement getPlacement_value() {
+		return placement_value;
+	}
+
+	public WebElement getProduct_symbols() {
+		return product_symbols;
+	}
+
+	public WebElement getNew_prodSymbol_Btn() {
+		return new_prodSymbol_Btn;
+	}
+
+	public WebElement getProdSymbol_type() {
+		return prodSymbol_type;
+	}
+
+	public WebElement getLanguage() {
+		return language;
+	}
+
+	public WebElement getNew_language_Btn() {
+		return new_language_Btn;
+	}
+
+	public WebElement getLang_value() {
+		return lang_value;
+	}
+
+	public WebElement getProduct_structure() {
+		return product_structure;
+	}
+
+	public WebElement getNew_prodStructure_Btn() {
+		return new_prodStructure_Btn;
+	}
+
+	public WebElement getActiveIcon() {
+		return ActiveIcon;
+	}
+
+	public WebElement getActiveText() {
+		return ActiveText;
+	}
+	
 	
 	
 

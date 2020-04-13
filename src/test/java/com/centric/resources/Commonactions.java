@@ -90,7 +90,7 @@ public class Commonactions{
 	
 	public void eleToBeClickable() throws Throwable {
 		
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		
 		
 
@@ -583,7 +583,7 @@ public class Commonactions{
 	public static void waitForAlert(WebDriver driver) throws Throwable
 	{
 	   int i=0;
-	   while(i++<300)
+	   while(i++<200)
 	   {
 	        try
 	        {
@@ -599,8 +599,9 @@ public class Commonactions{
 	          continue;
 	        }
 	   }
+	
 	   
-	  /* try{
+	   try{
 	   driver.navigate().refresh();
        Thread.sleep(1000);
        Alert alert = driver.switchTo().alert();
@@ -609,7 +610,7 @@ public class Commonactions{
        alert.accept();
 	   }catch (Exception e) {
 		// TODO: handle exception
-	}*/
+	}
 	}
 
 	/**

@@ -1,6 +1,6 @@
 #Author: karthick@kripya.com
 
-@selenium
+@Selenium
 Feature: User Management Setup
 
 @Roles @Jenkins
