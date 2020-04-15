@@ -633,6 +633,13 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 	@Given("User validates composition material {string},{string},{string}")
 	public void user_validates_composition_material(String string, String string2, String string3) throws Throwable {
 	    
+	try{
+			
+			ca.eleToBeClickable();
+			ca.clickjs(driver.findElement(By.xpath("(//span[contains(@class,'RightIcon')]/parent::div)[2]")));
+		}catch(Exception e){
+		}
+		
 		ca.eleToBeClickable();
 		ca.click(mp.getComp_materials());
 		ca.eleToBeClickable();
@@ -689,6 +696,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 	@Given("User validates product symbols {string},{string},{string}")
 	public void user_validates_product_symbols(String string, String string2, String string3) throws Throwable {
 	    
+		
 		ca.eleToBeClickable();
 		ca.click(mp.getProduct_symbols());
 		ca.eleToBeClickable();

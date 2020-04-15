@@ -1,4 +1,5 @@
-@Selenium
+#Author: karthick@kripya.com
+@Selenium @materialCreation
 Feature: Creation of Material Hierarchy
 
   Scenario Outline: User creates New material for a product

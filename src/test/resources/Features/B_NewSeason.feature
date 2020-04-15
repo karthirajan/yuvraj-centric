@@ -1,4 +1,5 @@
-@Selenium
+#Author: karthick@kripya.com
+@SeleniumRun @seasonCreation
 Feature: Creation of Season Hierarchy
 
  

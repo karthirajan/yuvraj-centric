@@ -1,5 +1,5 @@
 #Author: karthick@kripya.com
-@Selenium
+@Selenium @UpdateConfiguration
 Feature: Configuration and Setup
 
 

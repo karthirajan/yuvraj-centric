@@ -12,10 +12,10 @@ public class HomePage extends Commonactions{
 		PageFactory.initElements(Commonactions.driver, this);
 	}
 	
-	@FindBy(xpath="//a[text()='home']")
+	@FindBy(xpath="//span[contains(@data-csi-automation,'PageHome')]")
 	private WebElement user_homeBtn;
 	
-	@FindBy(xpath="//a[text()='build']")
+	@FindBy(xpath="//span[contains(@data-csi-automation,'PageSetup')]")
 	private WebElement user_setupBtn;
 	
 	@FindBy(xpath="//span[text()='settings']")

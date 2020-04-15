@@ -18,8 +18,8 @@ public class Hooks extends Commonactions {
 	@Before
 	public void before() {
 
-	 	 ca.launch(System.getProperty("url"));
-     // ca.launch("http://win16sql19-ccd.centricsoftware.com/WebAccess/login.html");
+	 //	 ca.launch(System.getProperty("url"));
+      ca.launch("http://win16sql19-ccd.centricsoftware.com/WebAccess/login.html");
 		 
 	}
 	
